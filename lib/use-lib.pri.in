@@ -1,0 +1,49 @@
+#====================================================================================
+#			            Qt
+#====================================================================================
+
+QT += @QTMODULES@
+
+#====================================================================================
+#			            Dependency Options
+#====================================================================================
+
+CONFIG(debug, debug|release) {
+    unix: POST_TARGETDEPS += @PREFIX@/lib/lib@LIBNAME@d.so
+    win32: POST_TARGETDEPS += @PREFIX@/Lib/@LIBNAME@d.lib
+}
+CONFIG(release, debug|release) {
+    unix: POST_TARGETDEPS += @PREFIX@/lib/lib@LIBNAME@.so
+    win32: POST_TARGETDEPS += @PREFIX@/Lib/@LIBNAME@.lib
+}
+
+unix: QMAKE_LIBDIR += @PREFIX@/lib
+win32: QMAKE_LIBDIR += @PREFIX@/Lib
+
+#====================================================================================
+#			            Compiler Options
+#====================================================================================
+
+INCLUDEPATH += @PREFIX@/include
+
+#====================================================================================
+#			            Linker Options
+#====================================================================================
+
+CONFIG(debug, debug|release) {
+    LIBS += -l@LIBNAME@d
+}    
+CONFIG(release, debug|release) {
+    LIBS += -l@LIBNAME@
+}    
+
+#====================================================================================
+#			            Cleanup
+#====================================================================================
+
+QT = $$unique( QT )
+POST_TARGETDEPS = $$unique( POST_TARGETDEPS )
+QMAKE_LIBDIR = $$unique( QMAKE_LIBDIR )
+INCLUDEPATH = $$unique( INCLUDEPATH )
+LIBS = $$unique( LIBS )
+
