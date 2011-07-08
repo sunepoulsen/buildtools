@@ -29,8 +29,8 @@ class ActionOptions:
     # 
     def __init__( self, prefix = os.path.abspath( PREFIX_PATH ), version = "" ):
         self._prefix = prefix
-        self._debugPrefix = DEBUG_PREFIX 
-        self._releasePrefix = RELEASE_PREFIX
+        self._debugPrefix = ActionOptions.DEBUG_PREFIX 
+        self._releasePrefix = ActionOptions.RELEASE_PREFIX
         self._version = version
     ##@}
 

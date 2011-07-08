@@ -8,8 +8,8 @@ import os
 import sys
 import argparse
 
-## Magic to add Win-Tools/modules to search path
-sys.path.append( os.path.join(os.path.split(os.path.dirname(os.path.realpath(sys.argv[0])))[0],"lib/modules") )
+## Magic to add lib/modules to search path
+sys.path.append( os.path.join( os.path.split( os.path.dirname( os.path.realpath( sys.argv[0] ) ) )[0], "lib/modules" ) )
 
 from copyaction import CopyAction
 

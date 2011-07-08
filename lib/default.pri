@@ -11,7 +11,7 @@ isEmpty( PROJECT_NAME ): error( "Variable PROJECT_NAME must be set before includ
 
 PYTHON_BIN = python
 
-TOOLS_BIN = $${PWD}/tools/bin
+TOOLS_BIN = $${PWD}/../bin
 INSTALL_TOOL = $${PYTHON_BIN} $${TOOLS_BIN}/install.py
 
 #====================================================================================
